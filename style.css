@@ -1,0 +1,109 @@
+:root {
+    --primary: #8A7967;      
+    --secondary: #A3B18A;    
+    --background: #F1EFEC;   
+    --text: #2E2E2E;
+    --surface:#D3D3D3; 
+
+    /*
+    --primary: #6ca0dc;      
+    --secondary: #ff8300;    
+    --background: #f9f9f6;   
+    --text: #111;   
+    */         
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: var(--primary);
+    padding: 1.5rem 0 1rem 0;
+    text-align: center;
+    border-bottom: 3px solid var(--secondary);
+    border-radius: 18px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #E7DED3;
+    letter-spacing: 1px;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+main {
+    display: block;
+    min-height: 60vh;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+section {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--secondary);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+
+.cta:hover {
+    background: var(--primary);
+    color: var(--text);
+}
+
+.popup {
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    border-radius: 18px;
+    padding: 2rem 2.5rem;
+    min-height: 120px;
+    margin: 0 auto 2rem auto;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
