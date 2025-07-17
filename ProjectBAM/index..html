@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InTurn Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="screen1">
+        <div style="margin-bottom:1.1rem;">
+            <div class="title-bg">
+                <h1>InTurn</h1>
+            </div>
+        </div>
+        <div class="slogan">Opportunity is found, not given. Find yours.</div>
+        <div class="slogan-line"></div>
+        <form id="surveyForm">
+            <div class="row">
+                <div style="flex:1">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required autocomplete="off" placeholder="Full Name">
+
+
+                </div>
+                <div style="flex:1">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="0" required autocomplete="off" placeholder="Age">
+                </div>
+            </div>
+            <label for="skills">Skills</label>
+            <textarea id="skills" name="skills" rows="4" placeholder="Explain your skills, interests, etc." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="divider-or"><span>or</span></div>
+        <button class="oval-btn google-btn" type="button">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="height:1.3em;vertical-align:middle;margin-right:0.7em;background:#fff;border-radius:50%;padding:2px;">Continue with Google
+        </button>
+        <button class="oval-btn apple-btn" type="button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="height:1.3em;vertical-align:middle;margin-right:0.7em;">Continue with Apple
+        </button>
+        <div class="terms-text">
+            By signing up, you agree to our
+            <a href="#" target="_blank">Terms and Conditions</a> and
+            <a href="#" target="_blank">Privacy Policy</a>
+        </div>
+        </form>
+    </div>
+    <div class="container" id="screen2" style="display:none">
+        <div class="thankyou">
+            <h2>Thank you for submitting!</h2>
+            <div id="summary"></div>
+        </div>
+    </div>
+    <div style="display:none" id="screen3">
+      <div class="container screen3-container">
+        <div id="screen3-content">
+            <!-- Content will be injected here -->
+        </div>
+        <nav class="bottom-nav in-container">
+            <button class="nav-btn" id="nav-briefcase" title="Home" aria-label="Home">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </button>
+            <button class="nav-btn" id="nav-pin" title="Map" aria-label="Map">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10A6 6 0 0 1 18 11c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+            </button>
+            <button class="nav-btn" id="nav-video" title="Video" aria-label="Video">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="15" height="14" rx="2.5"/><polygon points="16,12 11,9 11,15"/></svg>
+            </button>
+        </nav>
+      </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+

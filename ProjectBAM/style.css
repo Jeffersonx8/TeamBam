@@ -1,0 +1,277 @@
+/* Bottom navigation bar for screen3 */
+.bottom-nav {
+    background: #f5f3ed;
+    border-top: 1.5px solid #111;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4.5rem;
+    box-shadow: 0 -2px 12px #0001;
+}
+.bottom-nav.in-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-active-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    background: #b6e7a0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: left 0.25s cubic-bezier(.77,0,.18,1);
+    z-index: 1;
+    pointer-events: none;
+}
+.nav-btn {
+    /* Remove absolute positioning for flex layout */
+    border-radius: 12px;
+    overflow: visible;
+    z-index: 2;
+}
+.screen3-container {
+    position: relative;
+    padding-bottom: 5.5rem;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+.nav-btn {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+.nav-btn:active, .nav-btn:focus {
+    background: #e9f5e1;
+}
+/* Remove default outline for nav-btns */
+.nav-btn:focus {
+    outline: none;
+}
+.nav-btn svg {
+    display: block;
+}
+.hey-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #111;
+    border-radius: 16px 16px 0 0;
+    padding: 0.85rem 1.1rem 0.6rem 1.1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    z-index: 2;
+    margin-bottom: 0;
+.screen3-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex: 1 1 auto;
+    margin-top: 3.1rem;
+    padding-top: 2.2rem;
+}
+}
+.hey-user {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: left;
+    letter-spacing: 0.2px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+}
+.hey-underline {
+    display: block;
+    height: 2px;
+    background: #fff;
+    margin-left: 0;
+    margin-top: 0.18rem;
+    width: fit-content;
+    min-width: 40px;
+    max-width: 180px;
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url('https://tse1.explicit.bing.net/th/id/OIP.vZSVznU1N0-Q06FelkJq6AHaE8?rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+}
+.container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: #f5f3ed;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #0001;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border: 1.5px solid #111;
+}
+h1 {
+    margin-top: 0;
+    font-size: 2.3rem;
+    color: #1a73e8;
+    letter-spacing: 1px;
+}
+.slogan {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.7rem;
+    position: relative;
+}
+.slogan-line {
+    width: 100%;
+    height: 5px;
+    background: #b6e7a0;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+input, textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1.3rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f9fbfc;
+    resize: none;
+}
+.row {
+    display: flex;
+    gap: 1rem;
+}
+.row input {
+    flex: 1;
+}
+button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #1761c7;
+}
+.thankyou {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+.thankyou h2 {
+    color: #1a73e8;
+    margin-bottom: 1.2rem;
+}
+.title-bg {
+    background: #a08c6b; /* darker muted brown */
+    border-radius: 14px;
+    padding: 0.7rem 0 0.7rem 0;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 2px 12px #bfae9c40;
+    text-align: center;
+    border: 1.5px solid #111; /* thinner black outline */
+}
+.title-bg h1 {
+    margin: 0;
+    color: #e7dbc2; /* darker beige */
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #a08c6b80;
+}
+.divider-or {
+    display: flex;
+    align-items: center;
+    margin: 2.2rem 0 1.2rem 0;
+    color: #aaa;
+    font-size: 1.1rem;
+}
+.divider-or span {
+    background: #fff;
+    padding: 0 1.1em;
+    z-index: 1;
+}
+.divider-or:before, .divider-or:after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+.oval-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 2px 8px #0001;
+    cursor: pointer;
+    transition: background 0.18s;
+    min-height: 3.1em;
+    min-width: 220px;
+    padding: 0.95em 2.5em;
+    width: auto;
+}
+.oval-btn img {
+    pointer-events: none;
+}
+.oval-btn:active {
+    filter: brightness(0.95);
+}
+.google-btn {
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #111;
+}
+.google-btn:active {
+    background: #222;
+}
+.apple-btn {
+    background: #f5f5f5;
+    color: #222;
+    border: 1.5px solid #e0e0e0;
+}
+.apple-btn:active {
+    background: #ececec;
+}
+.terms-text {
+    margin-top: 1.2rem;
+    font-size: 0.98rem;
+    color: #888;
+    text-align: center;
+}
+.terms-text a {
+    color: #1a73e8;
+    text-decoration: underline;
+    margin: 0 0.2em;
+}
