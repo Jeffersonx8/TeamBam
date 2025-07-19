@@ -1,3 +1,20 @@
+    <div id="loadingScreen" style="display:none">
+      <div class="loading-container">
+        <svg class="loading-rocket" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M32 6c-2.5 0-4.5 2-4.5 4.5V18h9V10.5C36.5 8 34.5 6 32 6z" fill="#e2c7a1"/>
+            <path d="M27.5 18v6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5V18h-9z" fill="#fff6e6"/>
+            <ellipse cx="32" cy="38" rx="12" ry="20" fill="#b87a4b"/>
+            <ellipse cx="32" cy="38" rx="8.5" ry="15" fill="#fff9f3"/>
+            <ellipse cx="32" cy="38" rx="4.5" ry="8" fill="#e2c7a1"/>
+            <path d="M32 58c-2.5 0-4.5-2-4.5-4.5V54h9v-0.5c0 2.5-2 4.5-4.5 4.5z" fill="#e2c7a1"/>
+            <path d="M28 54c0 2.2 1.8 4 4 4s4-1.8 4-4h-8z" fill="#fff6e6"/>
+            <polygon points="32,54 28,62 36,62" fill="#b87a4b"/>
+          </g>
+        </svg>
+        <div class="loading-text">Sifting...</div>
+      </div>
+    </div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,26 +27,46 @@
     <div class="container" id="screen1">
         <div style="margin-bottom:1.1rem;">
             <div class="title-bg">
+                <svg class="rocket-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M32 6c-2.5 0-4.5 2-4.5 4.5V18h9V10.5C36.5 8 34.5 6 32 6z" fill="#e2c7a1"/>
+                        <path d="M27.5 18v6.5c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5V18h-9z" fill="#fff6e6"/>
+                        <ellipse cx="32" cy="38" rx="12" ry="20" fill="#b87a4b"/>
+                        <ellipse cx="32" cy="38" rx="8.5" ry="15" fill="#fff9f3"/>
+                        <ellipse cx="32" cy="38" rx="4.5" ry="8" fill="#e2c7a1"/>
+                        <path d="M32 58c-2.5 0-4.5-2-4.5-4.5V54h9v-0.5c0 2.5-2 4.5-4.5 4.5z" fill="#e2c7a1"/>
+                        <path d="M28 54c0 2.2 1.8 4 4 4s4-1.8 4-4h-8z" fill="#fff6e6"/>
+                        <polygon points="32,54 28,62 36,62" fill="#b87a4b"/>
+                    </g>
+                </svg>
                 <h1>InTurn</h1>
             </div>
         </div>
-        <div class="slogan">Opportunity is found, not given. Find yours.</div>
+        <div class="slogan">Launch your future — jumpstart your career with us!</div>
         <div class="slogan-line"></div>
         <form id="surveyForm">
             <div class="row">
                 <div style="flex:1">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required autocomplete="off" placeholder="Full Name">
-
-
                 </div>
                 <div style="flex:1">
                     <label for="age">Age</label>
                     <input type="number" id="age" name="age" min="0" required autocomplete="off" placeholder="Age">
                 </div>
             </div>
-            <label for="skills">Skills</label>
-            <textarea id="skills" name="skills" rows="4" placeholder="Explain your skills, interests, etc." required></textarea>
+            <div class="row">
+                <div style="flex:1">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" name="skills" required autocomplete="off" placeholder="Your skills, interests, etc.">
+                </div>
+            </div>
+            <div class="row">
+                <div style="flex:1">
+                    <label for="careerInterests">Career Interests</label>
+                    <input type="text" id="careerInterests" name="careerInterests" autocomplete="off" placeholder="e.g. Data Science, UX, Product Management">
+                </div>
+            </div>
             <button type="submit">Submit</button>
         </form>
         <div class="divider-or"><span>or</span></div>
@@ -46,16 +83,35 @@
         </div>
         </form>
     </div>
-    <div class="container" id="screen2" style="display:none">
-        <div class="thankyou">
-            <h2>Thank you for submitting!</h2>
-            <div id="summary"></div>
-        </div>
-    </div>
+    <!-- Removed intermediate thank you page (screen2) -->
     <div style="display:none" id="screen3">
       <div class="container screen3-container">
         <div id="screen3-content">
             <!-- Content will be injected here -->
+        </div>
+        <div class="screen3-divider"></div>
+        <div id="selectedCardMsg" style="text-align:center;margin:1.2rem 0 0.5rem 0;font-size:1.18rem;color:#21e6c1;"></div>
+        <div class="card-stack" id="cardStack" style="display:none;opacity:0;">
+          <div class="card" data-index="0" tabindex="0">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="card-logo" />
+            <div class="card-label">Bam</div>
+          </div>
+          <div class="card" data-index="1" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="card-logo" />
+            <div class="card-label">Bam</div>
+          </div>
+          <div class="card" data-index="2" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="card-logo" />
+            <div class="card-label">Bam</div>
+          </div>
+          <div class="card" data-index="3" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="card-logo" />
+            <div class="card-label">Bam</div>
+          </div>
+          <div class="card" data-index="4" tabindex="0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Target_logo.svg" alt="Target" class="card-logo" />
+            <div class="card-label">Bam</div>
+          </div>
         </div>
         <nav class="bottom-nav in-container">
             <button class="nav-btn" id="nav-briefcase" title="Home" aria-label="Home">
@@ -63,14 +119,5 @@
             </button>
             <button class="nav-btn" id="nav-pin" title="Map" aria-label="Map">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10A6 6 0 0 1 18 11c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-            </button>
-            <button class="nav-btn" id="nav-video" title="Video" aria-label="Video">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="15" height="14" rx="2.5"/><polygon points="16,12 11,9 11,15"/></svg>
-            </button>
-        </nav>
-      </div>
-    </div>
-    <script src="main.js"></script>
-</body>
-</html>
 
+            </button>
