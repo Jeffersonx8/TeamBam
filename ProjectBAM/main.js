@@ -2,9 +2,9 @@
 window.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('surveyForm');
     const screen1 = document.getElementById('screen1');
-    const screen2 = document.getElementById('screen2');
+    // const screen2 = document.getElementById('screen2');
     const screen3 = document.getElementById('screen3');
-    const summary = document.getElementById('summary');
+    // const summary = document.getElementById('summary');
     let userName = '';
 
     if (form) {
@@ -13,20 +13,78 @@ window.addEventListener('DOMContentLoaded', function() {
             userName = document.getElementById('name').value.trim();
             const age = document.getElementById('age').value.trim();
             const skills = document.getElementById('skills').value.trim();
-            // Show summary on screen2
-            if (summary) {
-                summary.innerHTML =
-                    `<strong>Name:</strong> ${userName ? userName : '-'}<br>` +
-                    `<strong>Age:</strong> ${age ? age : '-'}<br>` +
-                    `<strong>Skills:</strong><br><pre style="background:#f3f6fa;padding:0.7em 1em;border-radius:7px;font-size:1em;">${skills ? skills : '-'}</pre>`;
-            }
+            // Show loading screen for 3 seconds, then go to screen3
             if (screen1) screen1.style.display = 'none';
-            if (screen2) screen2.style.display = 'block';
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) loadingScreen.style.display = 'flex';
             setTimeout(() => {
-                if (screen2) screen2.style.display = 'none';
+                if (loadingScreen) loadingScreen.style.display = 'none';
                 afterSubmitShowScreen3();
-            }, 1200);
+                setTimeout(showCards, 350); // slight delay for effect
+            }, 3000);
         });
+    }
+
+    function showCards() {
+        const stack = document.getElementById('cardStack');
+        if (!stack) return;
+        stack.style.opacity = 0;
+        stack.style.display = 'flex';
+        setTimeout(() => {
+            stack.style.transition = 'opacity 0.5s';
+            stack.style.opacity = 1;
+        }, 50);
+        setupCardStackEvents();
+    }
+
+    function setupCardStackEvents() {
+        const cards = Array.from(document.querySelectorAll('.card'));
+        let current = 0;
+        const msg = document.getElementById('selectedCardMsg');
+        function showCard(idx) {
+            cards.forEach((card, i) => {
+                if (i === idx) {
+                    card.classList.remove('hide');
+                    card.classList.add('selected');
+                    card.focus();
+                } else {
+                    card.classList.add('hide');
+                    card.classList.remove('selected');
+                }
+            });
+        }
+        function removeCard(idx) {
+            if (cards[idx]) {
+                cards[idx].classList.add('hide');
+                cards[idx].classList.remove('selected');
+            }
+        }
+        function printCard(idx) {
+            if (msg) {
+                const logo = cards[idx].querySelector('.card-logo');
+                msg.innerHTML += `<div style='margin:1.1em auto;display:flex;flex-direction:column;align-items:center;'><img src='${logo.src}' alt='Microsoft' style='width:48px;height:48px;display:block;margin-bottom:0.5em;'><span style='color:#ff512f;font-size:1.3em;font-weight:700;'>Bam</span></div>`;
+            }
+        }
+        showCard(current);
+        document.addEventListener('keydown', onKey);
+        function onKey(e) {
+            if (screen3 && screen3.style.display !== 'block') return;
+            if (cards.filter(c => !c.classList.contains('hide')).length === 0) return;
+            if (e.key === 'ArrowRight') {
+                printCard(current);
+                removeCard(current);
+                current++;
+                if (current < cards.length) {
+                    showCard(current);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                removeCard(current);
+                current++;
+                if (current < cards.length) {
+                    showCard(current);
+                }
+            }
+        }
     }
 
     // Sliding screens logic
@@ -54,54 +112,3 @@ window.addEventListener('DOMContentLoaded', function() {
             document.getElementById('slide-briefcase'),
             document.getElementById('slide-pin'),
             document.getElementById('slide-video')
-        ];
-        slides.forEach((slide, idx) => {
-            if (!slide) return;
-            slide.className = 'screen3-slide';
-            if (idx === currentScreen) {
-                slide.classList.add('active');
-            } else if (prevScreen !== undefined && idx === prevScreen) {
-                slide.classList.add(prevScreen > currentScreen ? '' : 'left');
-            } else if (idx < currentScreen) {
-                slide.classList.add('left');
-            }
-        });
-        // Content for each slide
-        if (slides[0]) slides[0].innerHTML = '';
-        if (slides[1]) slides[1].innerHTML = '';
-        if (slides[2]) slides[2].innerHTML = '';
-    }
-
-    function slideTo(idx) {
-        if (idx === currentScreen) return;
-        const prev = currentScreen;
-        currentScreen = idx;
-        updateSlides(prev);
-    }
-
-    function showBriefcaseScreen() { slideTo(0); }
-    function showPinScreen() { slideTo(1); }
-    function showVideoScreen() { slideTo(2); }
-
-    // Initial render
-    function showScreen3() {
-        renderScreen3Slides();
-    }
-
-    setTimeout(() => {
-        const navBriefcase = document.getElementById('nav-briefcase');
-        const navPin = document.getElementById('nav-pin');
-        const navVideo = document.getElementById('nav-video');
-        if (navBriefcase) navBriefcase.onclick = showBriefcaseScreen;
-        if (navPin) navPin.onclick = showPinScreen;
-        if (navVideo) navVideo.onclick = showVideoScreen;
-    }, 0);
-
-    // Replace showBriefcaseScreen call after submit
-    function afterSubmitShowScreen3() {
-        if (screen3) {
-            screen3.style.display = 'block';
-            showScreen3();
-        }
-    }
-});
